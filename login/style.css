@@ -1,0 +1,285 @@
+:root {
+    /* Theme: Solid Blue, Yellow Cards, White Buttons (Matching Main App) */
+
+    /* Backgrounds */
+    --background-color: #1e3a8a;
+    /* Solid Dark Blue */
+    --card-background: #facc15;
+    /* Bright Yellow */
+
+    /* Text */
+    --text-primary: #0f172a;
+    /* Dark Navy/Black */
+    --text-secondary: #334155;
+    /* Slate */
+
+    /* Primary Actions */
+    --primary-color: #2563eb;
+    /* Royal Blue */
+    --primary-hover: #1d4ed8;
+    /* Darker Blue */
+    --primary-text: #ffffff;
+    /* White text */
+
+    /* Borders & Accents */
+    --border-color: rgba(0, 0, 0, 0.1);
+    --focus-ring: rgba(30, 58, 138, 0.1);
+    --error-color: #ef4444;
+
+    /* Spacing & Radius */
+    --radius: 24px;
+    /* Matching --radius-lg */
+    --shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.3);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Outfit', 'Inter', sans-serif;
+    /* Prefer Outfit if available, else Inter */
+}
+
+body {
+    background-color: var(--background-color);
+    /* Solid Blue, no patterns to match Main App */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 2rem 1rem;
+    color: var(--text-primary);
+    overflow-x: hidden;
+}
+
+.background-animation {
+    display: none;
+    /* Hidden to match clean Solid Blue of main app */
+}
+
+/* Animations */
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Card Styling */
+.form-wrapper {
+    background-color: var(--card-background);
+    padding: 3rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    width: 100%;
+    max-width: 500px;
+    border: 1px solid var(--border-color);
+    position: relative;
+    z-index: 10;
+
+    animation: slideUp 0.8s ease-out;
+    /* Matching slideUp animation */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-wrapper:hover {
+    transform: translateY(-4px);
+    /* Matching card hover */
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+header h1 {
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
+}
+
+header p {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.input-group-row {
+    display: flex;
+    gap: 1rem;
+}
+
+.input-group-row .input-group {
+    flex: 1;
+}
+
+.input-group {
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+    display: block;
+}
+
+input,
+textarea {
+    padding: 1rem;
+    border: 2px solid transparent;
+    border-radius: 12px;
+    /* --radius-md */
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    color: var(--text-primary);
+    background-color: rgba(255, 255, 255, 0.6);
+    /* Semi-transparent white on yellow */
+    width: 100%;
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+    background-color: #ffffff;
+    border-color: #1e3a8a;
+    /* --accent */
+    box-shadow: 0 0 0 4px var(--focus-ring);
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: var(--text-secondary);
+    opacity: 0.7;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Error styles */
+.input-group.error input,
+.input-group.error textarea {
+    border-color: var(--error-color);
+    background-color: #fff1f2;
+}
+
+.error-message {
+    color: var(--error-color);
+    font-size: 0.85rem;
+    margin-top: 0.35rem;
+    font-weight: 600;
+    display: none;
+}
+
+.input-group.error .error-message {
+    display: block;
+}
+
+/* Checkbox */
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+}
+
+.checkbox-group input[type="checkbox"] {
+    width: 1.25rem;
+    height: 1.25rem;
+    accent-color: var(--primary-text);
+    cursor: pointer;
+    box-shadow: none;
+}
+
+.checkbox-group label {
+    margin-bottom: 0;
+    font-weight: 500;
+    font-size: 0.95rem;
+    cursor: pointer;
+    color: var(--text-main);
+}
+
+.checkbox-group a {
+    color: var(--primary-text);
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.checkbox-group a:hover {
+    text-decoration: underline;
+}
+
+/* Button */
+button[type="submit"] {
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--primary-color);
+    color: var(--primary-text);
+    border: none;
+    border-radius: 12px;
+    /* --radius-md */
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button[type="submit"]:hover:not(:disabled) {
+    background-color: var(--primary-hover);
+    transform: scale(1.05);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.15);
+}
+
+button[type="submit"]:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+button[type="submit"]:disabled {
+    background-color: rgba(255, 255, 255, 0.5);
+    color: rgba(30, 58, 138, 0.5);
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+    .form-wrapper {
+        padding: 2rem 1.5rem;
+    }
+
+    .input-group-row {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    header h1 {
+        font-size: 1.75rem;
+    }
+}

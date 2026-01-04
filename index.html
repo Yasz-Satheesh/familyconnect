@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Family Details Manager</title>
+    <meta name="description"
+        content="Manage your family details with ease. Add, view, edit, and filter family members.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">Family Connect</div>
+        <a href="login/log.html">
+            <button class="btn btn-signin">Sign In</button>
+        </a>
+    </nav>
+    <div class="app-container">
+        <header class="app-header">
+            <h1>Family<span class="highlight">Connect</span></h1>
+            <p>Manage your loved ones' details in one place</p>
+        </header>
+
+        <main>
+            <!-- Add Member Form Section -->
+            <section class="card form-section">
+                <div class="card-header">
+                    <h2>Add New Member</h2>
+                </div>
+                <form id="familyForm">
+                    <input type="hidden" id="editId">
+
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="fullName">Full Name</label>
+                            <input type="text" id="fullName" placeholder="e.g. John Doe" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="dob">Date of Birth</label>
+                            <input type="date" id="dob" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="age">Age</label>
+                            <input type="number" id="age" placeholder="Auto-calculated" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="gender">Gender</label>
+                            <select id="gender" required>
+                                <option value="" disabled selected>Select Gender</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="relation">Relation</label>
+                            <select id="relation" required>
+                                <option value="" disabled selected>Select Relation</option>
+                                <option value="Self">Self</option>
+                                <option value="Spouse">Spouse</option>
+                                <option value="Child">Child</option>
+                                <option value="Parent">Parent</option>
+                                <option value="Sibling">Sibling</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="education">Education</label>
+                            <input type="text" id="education" placeholder="e.g. Bachelor's Degree">
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary" id="submitBtn">Add Member</button>
+                        <button type="button" class="btn btn-secondary" id="resetBtn">Reset</button>
+                    </div>
+                </form>
+            </section>
+
+            <!-- Tools Section: Search & Filter -->
+            <section class="tools-section">
+                <div class="search-box">
+                    <span class="icon">🔍</span>
+                    <input type="text" id="searchInput" placeholder="Search by name, relation...">
+                </div>
+
+                <div class="filters">
+                    <select id="filterGender">
+                        <option value="all">All Genders</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
+                    </select>
+
+                    <select id="filterRelation">
+                        <option value="all">All Relations</option>
+                        <option value="Self">Self</option>
+                        <option value="Spouse">Spouse</option>
+                        <option value="Child">Child</option>
+                        <option value="Parent">Parent</option>
+                        <option value="Sibling">Sibling</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+            </section>
+
+            <!-- List Section -->
+            <section class="card list-section">
+                <div class="card-header">
+                    <h2>Family Members</h2>
+                    <span class="count-badge" id="memberCount">0 Members</span>
+                </div>
+
+                <div class="table-responsive">
+                    <table id="familyTable">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Age</th>
+                                <th>Gender</th>
+                                <th>Relation</th>
+                                <th>Education</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableBody">
+                            <!-- Rows will be injected here -->
+                        </tbody>
+                    </table>
+                    <div id="noDataMessage" class="no-data hidden">
+                        <p>No family members found. Add one above!</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

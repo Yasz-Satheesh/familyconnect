@@ -1,0 +1,429 @@
+:root {
+    /* Solid Blue, Yellow, Dark Text, White Buttons Palette */
+
+    /* Backgrounds */
+    --background: #1e3a8a;
+    /* Solid Dark Blue */
+    --surface: #facc15;
+    /* Bright Yellow Cards */
+    --surface-hover: #fde047;
+    /* Lighter Yellow for hover */
+
+    /* Text */
+    --text-main: #0f172a;
+    /* Dark Navy/Black for contrast on Yellow */
+    --text-muted: #334155;
+    /* Slate for secondary text */
+    --text-inverse: #ffffff;
+    /* White text for dark backgrounds if needed */
+
+    /* Primary Actions */
+    --primary: #ffffff;
+    /* White Buttons */
+    --primary-hover: #f1f5f9;
+    /* Off-white hover */
+    --primary-text: #1e3a8a;
+    /* Blue text on white buttons */
+
+    /* Borders & Accents */
+    --border: rgba(0, 0, 0, 0.1);
+    --border-strong: rgba(0, 0, 0, 0.2);
+    --accent: #1e3a8a;
+    /* Dark Blue Accent */
+    --danger: #ef4444;
+
+    /* Styling vars */
+    --radius-lg: 24px;
+    /* More rounded */
+    --radius-md: 12px;
+    --radius-sm: 8px;
+    --shadow-soft: 0 10px 30px -5px rgba(0, 0, 0, 0.3);
+    --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    color: var(--text-main);
+    line-height: 1.6;
+    min-height: 100vh;
+    background-color: var(--background);
+    /* Removing the gradient/orb animations for a "Solid Blue" look as requested, 
+       but adding a very subtle pattern or texture could be nice. 
+       Sticking to solid as requested. */
+    overflow-x: hidden;
+}
+
+.app-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 6rem 1.5rem 3rem;
+    /* Increased top padding for fixed nav */
+}
+
+/* Navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background-color: var(--background);
+    /* Solid Blue */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    z-index: 1000;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.nav-brand {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: -0.02em;
+}
+
+.btn-signin {
+    background-color: transparent;
+    border: 2px solid #ffffff;
+    color: #ffffff;
+    padding: 0.5rem 1.25rem;
+    border-radius: var(--radius-md);
+    font-weight: 700;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.2s ease;
+}
+
+.btn-signin:hover {
+    background-color: #ffffff;
+    color: var(--background);
+}
+
+/* Header */
+.app-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.app-header h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: #ffffff;
+    /* White text on Blue BG */
+    letter-spacing: -0.02em;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.app-header .highlight {
+    color: var(--surface);
+    /* Yellow Highlight */
+}
+
+.app-header p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+
+/* Cards (Yellow) */
+.card {
+    background-color: var(--surface);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-soft);
+    padding: 2.5rem;
+    margin-bottom: 2.5rem;
+    border: 1px solid var(--border);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid var(--border-strong);
+    padding-bottom: 1rem;
+}
+
+.card-header h2 {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: var(--text-main);
+}
+
+/* Buttons (White) */
+.btn {
+    padding: 0.8rem 1.75rem;
+    border-radius: var(--radius-md);
+    font-weight: 700;
+    cursor: pointer;
+    border: none;
+    font-family: inherit;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    font-size: 1rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+/* Primary Button: White BG, Blue Text */
+.btn-primary {
+    background-color: var(--primary);
+    color: var(--primary-text);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+    transform: scale(1.05);
+    /* Subtle hover animation */
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.15);
+}
+
+/* Secondary Button: Transparent-ish */
+.btn-secondary {
+    background-color: transparent;
+    border: 2px solid var(--text-main);
+    color: var(--text-main);
+    box-shadow: none;
+}
+
+.btn-secondary:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    transform: scale(1.05);
+}
+
+/* Action Buttons in Table */
+.btn-edit {
+    background-color: #ffffff;
+    color: var(--accent);
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+    border: 1px solid var(--border);
+}
+
+.btn-edit:hover {
+    background-color: var(--accent);
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+.btn-danger {
+    background-color: #ffffff;
+    color: var(--danger);
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+    border: 1px solid var(--danger);
+}
+
+.btn-danger:hover {
+    background-color: var(--danger);
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+/* Form Styles */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.form-group label {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--text-main);
+    display: block;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid transparent;
+    border-radius: var(--radius-md);
+    background-color: rgba(255, 255, 255, 0.6);
+    /* Semi-transparent white on yellow */
+    color: var(--text-main);
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+input:focus,
+select:focus {
+    outline: none;
+    background-color: #ffffff;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 4px rgba(30, 58, 138, 0.1);
+}
+
+input::placeholder {
+    color: var(--text-muted);
+    opacity: 0.7;
+}
+
+/* Tools Section */
+.tools-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    /* Subtle container */
+    padding: 1rem;
+    border-radius: var(--radius-lg);
+    backdrop-filter: blur(5px);
+}
+
+.search-box {
+    flex: 2;
+    position: relative;
+    min-width: 280px;
+}
+
+.search-box input {
+    background-color: #ffffff;
+    padding-left: 3rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.search-box .icon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2rem;
+}
+
+.filters {
+    flex: 1;
+    display: flex;
+    gap: 1rem;
+}
+
+.filters select {
+    background-color: #ffffff;
+    cursor: pointer;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+/* Table Styling */
+.table-responsive {
+    overflow-x: auto;
+    border-radius: var(--radius-md);
+    background-color: rgba(255, 255, 255, 0.5);
+    /* Light backing for table */
+    border: 1px solid var(--border);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    white-space: nowrap;
+}
+
+th {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 1.25rem 1rem;
+    text-align: left;
+    font-weight: 800;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+    border-bottom: 2px solid var(--border-strong);
+}
+
+td {
+    padding: 1.25rem 1rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    color: var(--text-main);
+    font-weight: 500;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+tr:hover td {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+.badge {
+    display: inline-block;
+    padding: 0.35rem 0.85rem;
+    border-radius: 9999px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    background-color: #ffffff;
+    color: var(--text-main);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.count-badge {
+    background-color: var(--background);
+    /* Blue */
+    color: #ffffff;
+    padding: 0.35rem 1rem;
+    border-radius: 9999px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.no-data {
+    text-align: center;
+    padding: 3rem;
+    font-style: italic;
+    color: var(--text-muted);
+}
+
+.hidden {
+    display: none;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 640px) {
+    .app-header h1 {
+        font-size: 2.5rem;
+    }
+
+    .tools-section {
+        flex-direction: column;
+        background: transparent;
+        padding: 0;
+    }
+
+    .filters {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .search-box {
+        width: 100%;
+    }
+
+    .card {
+        padding: 1.5rem;
+    }
+}
